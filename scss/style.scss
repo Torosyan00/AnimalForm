@@ -1,0 +1,307 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
+
+:root {
+    --text-color: #333d51;
+    --bg-color: #f1f1f1;
+    --primary-color: #000;
+
+    transition: --primary-color 500ms linear;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: Rubik;
+    color: var(--text-color);
+}
+
+main {
+    max-width: 1440px;
+    padding: 0px 10px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    width: 400px;
+    padding: 30px 0px 20px 0px;
+    background-color: rgb(247, 245, 245);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+form {
+    text-align: center;
+
+    .avatar {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+
+        div {
+            position: relative;
+            flex: 1 1 300px;
+            margin: 0 auto;
+
+            transition: transform 300ms linear;
+            span {
+                overflow: hidden;
+                position: absolute;
+
+                width: 23px;
+                height: 23px;
+                background-color: #000;
+                border-radius: 50%;
+                &::after {
+                    content: "";
+                    width: 10px;
+                    height: 10px;
+                    background-color: #fff;
+                    box-shadow: inset 0px 1px 2px var(--text-color);
+                    border-radius: 50%;
+
+                    position: absolute;
+                    top: calc(50% - 5px);
+                    left: calc(50% - 5px);
+
+                    z-index: 1;
+
+                    animation: achk 15000ms ease-in-out infinite;
+                }
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background-color: #353542;
+
+                    position: absolute;
+                    left: 0;
+                    top: -90%;
+
+                    z-index: 2;
+
+                    animation: tartich 5000ms linear infinite;
+                }
+            }
+
+            img {
+                width: 300px;
+            }
+        }
+        .panda {
+            span {
+                top: 123px;
+            }
+            span:first-of-type {
+                left: 93px;
+            }
+
+            span:last-of-type {
+                right: 97px;
+            }
+        }
+        .deer {
+            span {
+                top: 128px;
+                &::before {
+                    background-color: #5f2c22;
+                }
+            }
+            span:first-of-type {
+                left: 101px;
+            }
+            span:last-of-type {
+                right: 104px;
+            }
+        }
+        .elephant {
+            span {
+                width: 28px;
+                height: 28px;
+                top: 107px;
+                &::before {
+                    background-color: #585e6b;
+                }
+            }
+            span:first-of-type {
+                left: 85px;
+            }
+            span:last-of-type {
+                right: 85px;
+            }
+        }
+        .lion {
+            span {
+                top: 125px;
+                &::before {
+                    background-color: #744313;
+                }
+            }
+            span:first-of-type {
+                left: 95px;
+            }
+            span:last-of-type {
+                right: 95px;
+            }
+        }
+        .mouse {
+            span {
+                width: 25px;
+                height: 25px;
+                top: 108px;
+                &::before {
+                    background-color: #585e6b;
+                }
+            }
+            span:first-of-type {
+                left: 96px;
+            }
+            span:last-of-type {
+                right: 95px;
+            }
+        }
+    }
+    & > label {
+        display: block;
+        margin: 10px 0px;
+        font-weight: 700;
+    }
+    & > input {
+        font-family: Rubik;
+
+        width: 300px;
+        height: 20px;
+        display: block;
+        padding: 5px;
+        margin: 0 auto;
+        font-size: 18px;
+        color: var(--text-color);
+        font-size: 15px;
+
+        transition: outline-color 200ms linear;
+        &:focus {
+            outline-color: var(--primary-color);
+            outline-offset: 1px;
+        }
+    }
+    .choose {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: space-around;
+        gap: 15px;
+        h4 {
+            flex: 0 0 100%;
+            margin: 0px 0px;
+        }
+        .choose-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            &:hover > input {
+                & ~ .marker {
+                    background-color: var(--bg-color);
+                    box-shadow: inset 0px 5px 10px var(--primary-color);
+                }
+            }
+
+            input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                &:checked ~ .marker {
+                    background-color: var(--primary-color);
+                    box-shadow: inset 0px 5px 5px var(--text-color);
+                }
+                &:checked ~ .marker::after {
+                    display: block;
+                }
+            }
+            .marker {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                height: 25px;
+                width: 25px;
+                border: 2px solid var(--primary-color);
+                border-radius: 50%;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    display: none;
+                    top: 7px;
+                    left: 7px;
+                    width: 11px;
+                    height: 11px;
+                    border-radius: 50%;
+                    background: var(--bg-color);
+                    box-shadow: inset 0px 2px 2px var(--primary-color);
+                }
+            }
+        }
+    }
+
+    button {
+        display: block;
+        font-family: Rubik;
+
+        padding: 8px 20px;
+        margin: 10px auto;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--bg-color);
+        background-color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+        border-radius: 10px;
+        cursor: pointer;
+
+        transition: background-color 300ms linear, color 300ms linear;
+        &:active {
+            transform: scale(0.97);
+        }
+        &:hover {
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+        }
+    }
+}
+form:has(input[type="password"]:focus) > .avatar span::before {
+    top: 0px;
+    animation: none;
+}
+form:has(label:first-of-type > input:checked) > .avatar > div {
+    transform: translateX(calc(200% + 100px));
+}
+form:has(label:nth-of-type(2) > input:checked) > .avatar > div {
+    transform: translateX(calc(100% + 50px));
+}
+form:has(label:nth-of-type(3) > input:checked) > .avatar > div {
+    transform: translate(0);
+}
+form:has(label:nth-of-type(4) > input:checked) > .avatar > div {
+    transform: translateX(calc(-100% - 50px));
+}
+form:has(label:last-of-type > input:checked) > .avatar > div {
+    transform: translateX(calc(-200% - 100px));
+}
+
+:root:has(label:first-of-type > input:checked),
+:root:has(label:nth-of-type(3) > input:checked) {
+    --primary-color: #d990ea;
+}
+:root:has(label:nth-of-type(2) > input:checked),
+:root:has(label:nth-of-type(4) > input:checked) {
+    --primary-color: #709cff;
+}
+:root:has(label:last-of-type > input:checked) {
+    --primary-color: #8dd95d;
+}
+
+@import "_keyframes";
